@@ -6,21 +6,24 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeNormalUserComponent } from './home-normal-user/home-normal-user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 const routes: Routes = [
   {path: 'dash-company-user', component: DashCompanyUserComponent},
-  {path: '', redirectTo: '/dash-company-user', pathMatch: 'full'},
+
   {path: 'about-us', component: AboutUsComponent},
-  {path: '', redirectTo: '/about-us', pathMatch: 'full'},
+
   {path: 'home-normal-user', component:HomeNormalUserComponent},
-  {path: '', redirectTo: '/home-normal-user', pathMatch: 'full'},
+
   {path: 'contact-us', component: ContactUsComponent},
-  {path: '', redirectTo: '/contact-us', pathMatch: 'full'},
+
   
   
   
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 
 

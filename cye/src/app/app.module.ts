@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeNormalUserComponent } from './home-normal-user/home-normal-user.component';
@@ -12,6 +11,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     AboutUsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    WelcomePageComponent
   ],
 
 
@@ -34,3 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+

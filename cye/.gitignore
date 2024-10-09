@@ -1,3 +1,5 @@
+# Ignore node_modules directory
+node_modules/
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 /node_modules
 .angular
