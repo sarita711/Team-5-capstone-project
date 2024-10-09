@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: white;
+    color: black;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 0; /* Remove margin for headers in boxes */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto; /* Add space above and below */
+    display: flex;
+    justify-content: space-around; /* Distribute boxes evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.box {
+    background-color: #f4f4f4; /* Light background color for boxes */
+    border: 2px solid black; /* Thicker border for boxes */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding inside boxes */
+    margin: 10px; /* Space between boxes */
+    width: 250px; /* Fixed width for boxes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+}
+
+.box:hover {
+    transform: scale(1.05); /* Slightly enlarge the box */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
