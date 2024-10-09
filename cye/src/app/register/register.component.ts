@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,10 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup = this.fb.group({});
-
   isCompanyUser = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -38,6 +38,9 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       // Handle registration logic here
       console.log('Form Submitted', this.registerForm.value);
+
+      // Redirect to the login page
+      this.router.navigate(['/login']);
     }
   }
 }
