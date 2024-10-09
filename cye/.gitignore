@@ -1,8 +1,6 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Ignore node_modules directory
-node_modules/
-
+/node_modules
+.angular
 # Compiled output
 /dist
 /tmp
