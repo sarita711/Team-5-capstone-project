@@ -1,0 +1,40 @@
+.footer-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align footer items */
+    padding: 15px; /* Padding for the footer */
+    background-color: white; /* Background color for footer */
+    border-top: 2px solid black; /* Top border for separation */
+}
+
+.footer-links {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Space between links */
+}
+
+.footer-item {
+    text-decoration: none; /* Remove default underline */
+    color: black;
+    font-size: 16px; /* Font size */
+    font-weight: bold;
+    padding: 5px; /* Add padding for better click area */
+    position: relative; /* Position relative for the pseudo-element */
+}
+
+.footer-item:hover {
+    text-decoration: underline; /* Add underline on hover */
+    text-decoration-color: black; /* Set underline color */
+    text-underline-offset: 2px; /* Add gap between text and underline */
+}
+
+.footer-center {
+    font-size: 18px; /* Slightly larger font size */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+.footer-copy {
+    font-size: 14px; /* Smaller text for copyright */
+    color: black;
+    margin-top: 10px; /* Space above the copyright text */
+}

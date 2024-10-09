@@ -1,0 +1,81 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Reduced padding for a smaller header */
+    background-color: white; /* Optional: add background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+}
+
+.header-item {
+    font-weight: bold;
+}
+
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 900; /* Increased font weight for bolder text */
+    font-size: 20px; /* Optional: increase font size */
+}
+
+.left-links {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+
+.right-links {
+    display: flex; /* Align items in the right section */
+    gap: 20px; /* Space between right section links */
+}
+
+.left-links a,
+.right-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px; /* Padding around links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.support-item {
+    margin-left: 20px; /* Space between Support and Profile */
+}
+
+.left-links a:hover,
+.right-links a:hover {
+    background-color: black; /* Background on hover */
+    color: white; /* Text color on hover */
+}
+
+/* Profile Dropdown Styles */
+.profile-container {
+    position: relative; /* To position the dropdown */
+    display: flex; /* Ensure items in profile align */
+    align-items: center; /* Center align items vertically */
+}
+
+.profile-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it absolutely */
+    top: 100%; /* Position below the link */
+    right: 0; /* Align dropdown to the right edge of the Profile link */
+    background-color: white; /* Dropdown background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the dropdown */
+    z-index: 10; /* Ensure it appears above other content */
+    color: black; /* Text color */
+}
+
+.profile-container:hover .profile-dropdown {
+    display: block; /* Show dropdown on hover */
+}
+
+.header-line {
+    height: 2px; /* Increased line thickness */
+    background-color: black; /* Black line */
+    width: 100%; /* Ensures the line touches both ends */
+    margin-top: -1px; /* Moves the line up */
+}
