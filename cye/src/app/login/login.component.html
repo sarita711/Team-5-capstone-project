@@ -1,0 +1,27 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" />
+      </div>
+      <div class="form-group">
+        <label for="userType">User Type</label>
+        <select id="userType" formControlName="userType">
+          <option value="normal">Normal User</option>
+          <option value="company">Company User</option>
+        </select>
+      </div>
+      <div class="form-actions">
+        <button type="submit">Login</button>
+      </div>
+      <div class="register-link">
+        <span>New user here? </span><a href="/register">Register now</a>
+      </div>
+    </form>
+  </div>
+  
