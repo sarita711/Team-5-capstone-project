@@ -1,0 +1,72 @@
+/* Event View Page CSS */
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #6d6767; /* Page background color */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  background-color: #f0f0f0; /* Background color for the wrapper */
+  border-radius: 15px; /* Rounded edges for the outer box */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center; /* Center the event box */
+}
+
+.event-box {
+  width: 90%; /* Adjust width as needed */
+  max-width: 600px; /* Limit the max width */
+  padding: 20px;
+  background-color: #ffffff; /* Inner box color */
+  border: 1px solid #684747df;
+  border-radius: 10px; /* Rounded edges for the event box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.event-details {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.event-details p {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.event-details p span {
+  font-weight: bold;
+  color: #000;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #555;
+}
