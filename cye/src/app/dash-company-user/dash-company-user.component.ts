@@ -4,6 +4,7 @@ interface Event {
   title: string;
   description: string;
   date: string;
+  time: string;
   venue: string;
   image: string;
 }
@@ -22,6 +23,7 @@ export class DashCompanyUserComponent {
     title: '',
     description: '',
     date: '',
+    time: '',
     venue: '',
     image: ''
   };
@@ -43,7 +45,7 @@ export class DashCompanyUserComponent {
   }
 
   onFileChange(event: any) {
-    const file = event.target.files; // Access the first file
+    const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
       this.event.image = reader.result as string;
@@ -76,6 +78,7 @@ export class DashCompanyUserComponent {
       title: '',
       description: '',
       date: '',
+      time: '',
       venue: '',
       image: ''
     };
