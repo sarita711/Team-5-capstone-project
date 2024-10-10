@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeNormalUserComponent } from './home-normal-user/home-normal-user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 const routes: Routes = [
   {path: 'dash-company-user', component: DashCompanyUserComponent},
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'home-normal-user', component:HomeNormalUserComponent},
 
   {path: 'contact-us', component: ContactUsComponent},
-
+  {path: 'wishlist', component:WishlistComponent},
   
   
   

@@ -1,16 +1,17 @@
 <header class="header-container">
     <div class="left-links">
-        <a href="/about-us" class="header-item">About Us</a>
-        <a href="#" class="header-item">Wishlist</a>
+        <a routerLink="/about-us" class="header-item">About Us</a>
+        <a routerLink="/wishlist" class="header-item">Wishlist</a>
     </div>
     <div class="header-item header-center">Catch Your Events</div>
     <div class="right-links">
-        <a href="#" class="header-item support-item">Support</a>
+        <a routerLink="/contact-us" class="header-item support-item">Support</a>
         <div class="profile-container">
             <a href="#" class="header-item">Profile</a>
             <div class="profile-dropdown">
-                <p>Email: user&#64;example.com</p>
+                <p>Email: useremail</p>
                 <p>Role: User</p>
+                <button class="logout-button" (click)="logout()">Log Out</button>
             </div>
         </div>
     </div>
