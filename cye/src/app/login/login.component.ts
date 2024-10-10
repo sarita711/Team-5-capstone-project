@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> a18de023fb34ce3a6073493665ec8476c2635fe2
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
