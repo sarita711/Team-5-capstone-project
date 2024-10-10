@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> a18de023fb34ce3a6073493665ec8476c2635fe2
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,9 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
- 
+
   constructor(private fb: FormBuilder) {}
- 
+
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -18,7 +22,6 @@ export class LoginComponent implements OnInit {
       userType: ['normal', Validators.required]
     });
   }
- 
   onSubmit(): void {
     if (this.loginForm.valid) {
       // Handle login logic here
@@ -26,4 +29,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
- 

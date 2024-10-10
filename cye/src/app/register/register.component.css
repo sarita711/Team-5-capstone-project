@@ -4,8 +4,8 @@ body {
     font-family: 'Roboto', sans-serif;
   }
   
-  .login-container {
-    width: 450px;
+  .register-container {
+    width: 450px; /* Further reduced width */
     margin: auto;
     padding: 2em;
     border: 1px solid #fff;
@@ -16,7 +16,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(30, 30, 30, 0.8); /* Slightly transparent black */
   }
   
   h2 {
@@ -49,7 +49,7 @@ body {
   
   .form-actions {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
   
@@ -67,18 +67,13 @@ body {
     background-color: #777;
   }
   
-  .register-link {
-    margin-top: 1em;
-    color: #ccc;
-  }
-  
-  .register-link a {
-    color: #fff;
+  .login-link {
     text-decoration: none;
+    color: #fff;
     transition: color 0.3s;
   }
   
-  .register-link a:hover {
+  .login-link:hover {
     color: #ccc;
   }
   
