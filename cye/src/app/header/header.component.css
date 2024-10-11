@@ -1,0 +1,207 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Reduced padding for a smaller header */
+    background-color: white; /* Optional: add background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+}
+ 
+.header-item {
+    font-weight: bold;
+}
+ 
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 900; /* Increased font weight for bolder text */
+    font-size: 20px; /* Optional: increase font size */
+}
+ 
+.left-links {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+ 
+.right-links {
+    display: flex; /* Align items in the right section */
+    gap: 20px; /* Space between right section links */
+}
+ 
+.left-links a,
+.right-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px; /* Padding around links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+}
+ 
+.support-item {
+    margin-left: 20px; /* Space between Support and Profile */
+}
+ 
+.left-links a:hover,
+.right-links a:hover {
+    background-color: black; /* Background on hover */
+    color: white; /* Text color on hover */
+}
+ 
+/* Profile Dropdown Styles */
+.profile-container {
+    position: relative; /* To position the dropdown */
+    display: flex; /* Ensure items in profile align */
+    align-items: center; /* Center align items vertically */
+}
+ 
+.profile-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it absolutely */
+    top: 100%; /* Position below the link */
+    right: 0; /* Align dropdown to the right edge of the Profile link */
+    background-color: white; /* Dropdown background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the dropdown */
+    z-index: 10; /* Ensure it appears above other content */
+    color: black; /* Text color */
+}
+ 
+.profile-container:hover .profile-dropdown {
+    display: block; /* Show dropdown on hover */
+}
+ 
+.header-line {
+    height: 2px; /* Increased line thickness */
+    background-color: black; /* Black line */
+    width: 100%; /* Ensures the line touches both ends */
+    margin-top: -1px; /* Moves the line up */
+}
+ 
+.logout-button {
+    background-color: rgb(20, 19, 19); /* Optional: button color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Reduced padding for a smaller header */
+    background-color: white; /* Optional: add background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+}
+
+.header-item {
+    font-weight: bold;
+}
+
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 900; /* Increased font weight for bolder text */
+    font-size: 20px; /* Optional: increase font size */
+}
+
+.left-links {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+
+.right-links {
+    display: flex; /* Align items in the right section */
+    gap: 20px; /* Space between right section links */
+}
+
+.left-links a,
+.right-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px; /* Padding around links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.support-item {
+    margin-left: 20px; /* Space between Support and Profile */
+}
+
+.left-links a:hover,
+.right-links a:hover {
+    background-color: black; /* Background on hover */
+    color: white; /* Text color on hover */
+}
+
+/* Profile Dropdown Styles */
+.profile-container {
+    position: relative; /* To position the dropdown */
+    display: flex; /* Ensure items in profile align */
+    align-items: center; /* Center align items vertically */
+}
+
+.profile-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it absolutely */
+    top: 100%; /* Position below the link */
+    right: 0; /* Align dropdown to the right edge of the Profile link */
+    background-color: #ffffff; /* Dropdown background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    border-radius: 8px; /* More rounded corners */
+    padding: 15px; /* Padding inside the dropdown */
+    z-index: 10; /* Ensure it appears above other content */
+    color: #333; /* Text color */
+    min-width: 200px; /* Minimum width for dropdown */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+.profile-dropdown p {
+    margin: 5px 0; /* Space between paragraphs */
+    font-size: 16px; /* Font size for text */
+    font-family: Arial, sans-serif; /* Font family for a cleaner look */
+}
+
+.profile-dropdown .email {
+    font-style:italic ;
+    font-weight: bold; /* Bold for email */
+    color: #555; /* Color for email */
+}
+
+.profile-dropdown .role {
+    font-weight: bold;
+    font-style: italic; /* Italicize the role */
+    color: #555; /* Lighter color for the role */
+}
+
+.profile-container:hover .profile-dropdown {
+    display: block; /* Show dropdown on hover */
+    opacity: 1; /* Ensure dropdown is visible */
+    visibility: visible; /* Make dropdown visible */
+}
+
+.header-line {
+    height: 2px; /* Increased line thickness */
+    background-color: black; /* Black line */
+    width: 100%; /* Ensures the line touches both ends */
+    margin-top: -1px; /* Moves the line up */
+}
+
+.logout-button {
+    background-color: rgb(20, 19, 19); /* Optional: button color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.logout-button:hover {
+    background-color: rgb(87, 73, 73); /* Darker color on hover */
+}
