@@ -4,6 +4,7 @@
 <div class="wishlist-container">
   <h2>Your Wishlist</h2>
   <div class="events">
+<<<<<<< HEAD
     <div *ngFor="let event of wishlist" class="event-card">
       <div class="event-image">
         <img [src]="event.image || 'assets/images/default-event.jpg'" alt="{{ event.title }}" />
@@ -15,6 +16,27 @@
       <p><strong>Venue:</strong> {{ event.venue }}</p>
       <button class="remove-btn" (click)="removeFromWishlist(event)">Remove</button>
     </div>
+=======
+    <div class="event-card">
+      <div class="event-image">
+        <img src="assets/images/marketing.jpg" alt="Marketing Workshop">
+      </div>
+      <h3>Marketing Workshop</h3>
+      <p>Marketing Gurus Ltd.</p>
+      <a href="#">Know More ></a>
+      <button class="remove-wishlist-btn">Remove from Wishlist</button>
+    </div>
+    <div class="event-card">
+      <div class="event-image">
+        <img src="assets/images/cherry.jpg" alt="Cherry blossom">
+      </div>
+      <h3>Cherry blossom</h3>
+      <p>Way to Peace</p>
+      <a href="#">Know More ></a>
+      <button class="remove-wishlist-btn">Remove from Wishlist</button>
+    </div>
+    <!-- Add more event cards as needed -->
+>>>>>>> 79411bfcf21beb745cd2d9a66f666ee7a0843874
   </div>
 </div>
 
