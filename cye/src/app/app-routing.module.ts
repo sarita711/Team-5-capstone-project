@@ -8,6 +8,7 @@ import { HomeNormalUserComponent } from './home-normal-user/home-normal-user.com
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { EventPageComponent } from './event-page/event-page.component';
 const routes: Routes = [
   {path: 'dash-company-user', component: DashCompanyUserComponent},
 
@@ -25,8 +26,10 @@ const routes: Routes = [
 
   { path: 'welcome', component: WelcomePageComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  {path: 'event-page', component: EventPageComponent},
+  {path:'', redirectTo:'/event-page', pathMatch:'full'},
+  
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +17,6 @@ export class LoginComponent implements OnInit {
       userType: ['normal', Validators.required]
     });
   }
-
   onSubmit(): void {
     if (this.loginForm.valid) {
       // Handle login logic here
