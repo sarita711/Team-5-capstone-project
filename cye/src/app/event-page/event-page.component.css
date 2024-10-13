@@ -1,60 +1,69 @@
+/* event-page.component.css */
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 100;
-  background-color: #1c1b1b;
+  background-color: #1c1b1b; /* Dark background */
+  color: #fff; /* White text */
+  font-family: Arial, sans-serif; /* Font family */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
 }
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.event-container {
+  background-color: #fff; /* White background for the event container */
+  color: #000; /* Black text inside the container */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 20px; /* Padding around the content */
+  max-width: 600px; /* Max width for the container */
+  margin: 20px auto; /* Center the container */
 }
 
-.container {
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
+.event-container h1 {
+  font-size: 2em; /* Larger font for the title */
+  margin-bottom: 15px; /* Space below the title */
+  text-align: center; /* Center align the title */
 }
 
-.event-box h1 {
-  color: #161414;
-  margin-bottom: 20px;
+.event-details {
+  margin: 15px 0; /* Margin for event details */
 }
 
 .event-details img {
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 10px; /* Rounded corners for the image */
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Max height to avoid excessive image size */
 }
 
 .event-details p {
-  color: #000;
-  margin: 10px 0;
+  margin: 10px 0; /* Space between paragraphs */
 }
 
 .event-details span {
-  font-weight: bold;
+  font-weight: bold; /* Bold the labels for better readability */
 }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 20px;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+p {
+  font-size: 1.1em; /* Slightly larger font for paragraphs */
 }
 
-.button:hover {
-  background-color: #333;
+.event-not-found {
+  text-align: center; /* Center align the not found message */
+  font-size: 1.5em; /* Larger font for emphasis */
+  margin-top: 50px; /* Space above the message */
 }
 
+/* Responsive styles */
+@media (max-width: 600px) {
+  .event-container {
+    padding: 15px; /* Less padding on smaller screens */
+  }
+
+  .event-container h1 {
+    font-size: 1.8em; /* Smaller title on mobile */
+  }
+
+  .event-details p {
+    font-size: 1em; /* Smaller paragraph text on mobile */
+  }
+}

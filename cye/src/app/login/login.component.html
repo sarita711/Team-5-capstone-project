@@ -1,27 +1,45 @@
 <div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" />
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</small>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          Password must be at least 6 characters long.
+        </small>
       </div>
-      <div class="form-group">
-        <label for="userType">User Type</label>
-        <select id="userType" formControlName="userType">
-          <option value="normal">Normal User</option>
-          <option value="company">Company User</option>
-        </select>
-      </div>
-      <div class="form-actions">
-        <button type="submit">Login</button>
-      </div>
-      <div class="register-link">
-        <span>New user here? </span><a href="/register">Register now</a>
-      </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-group">
+      <label for="userType">User Type</label>
+      <select id="userType" formControlName="userType">
+        <option value="normal">Normal User</option>
+        <option value="company">Company User</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">Login</button>
+    </div>
+    
+    <div class="register-link">
+      <span>New user here? </span><a href="/register">Register now</a>
+    </div>
+
+    <!-- Error message if login fails -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

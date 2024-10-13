@@ -26,8 +26,8 @@ const routes: Routes = [
 
   { path: 'welcome', component: WelcomePageComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-  {path: 'event-page', component: EventPageComponent},
-  {path:'', redirectTo:'/event-page', pathMatch:'full'},
+  { path: 'event-page/:id', component: EventPageComponent },
+
   
 ];
 

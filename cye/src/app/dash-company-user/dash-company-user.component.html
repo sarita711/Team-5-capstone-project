@@ -17,7 +17,7 @@
         <p>{{event.description}}</p>
         <p>{{event.date}}</p>
         <p>{{event.venue}}</p>
-        <a routerLink="/event">Know More ></a>
+        <a [routerLink]="['/event-page', event.id]">Know More ></a>
       </div>
     </div>
 </div>
@@ -41,6 +41,7 @@
 </div>
 
 <!-- Modal Structure -->
+<!-- Modal Structure -->
 <div id="eventModal" class="modal" [ngClass]="{'show': isModalOpen}">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">×</span>
@@ -54,6 +55,9 @@
       
       <label for="date">Event Date:</label>
       <input type="date" id="date" [(ngModel)]="event.date" name="date" required>
+      
+      <label for="time">Event Time:</label> <!-- Add this field -->
+      <input type="time" id="time" [(ngModel)]="event.time" name="time" required>
       
       <label for="venue">Event Venue:</label>
       <input type="text" id="venue" [(ngModel)]="event.venue" name="venue" required>
