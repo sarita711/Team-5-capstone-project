@@ -33,8 +33,10 @@
             <p>{{event.description}}</p>
             <p>{{event.date}}</p>
             <p>{{event.venue}}</p>
-            <button (click)="editEvent(i)">Edit</button>
-            <button (click)="deleteEvent(i)">Delete</button>
+            <div class="button-container"> <!-- New div for buttons -->
+                <button (click)="editEvent(i)">Edit</button>
+                <button (click)="deleteEvent(i)">Delete</button>
+            </div>
         </div>
     </div>
 </div>
