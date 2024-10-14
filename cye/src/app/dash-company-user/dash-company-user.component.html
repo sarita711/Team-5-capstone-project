@@ -7,18 +7,17 @@
 
 <div class="events-container" *ngIf="!isManageEventsOpen">
     <h2>All Events</h2>
-    
     <div class="events">
-      <div class="event-card" *ngFor="let event of events">
-        <div class="event-image">
-            <img [src]="event.image" alt="{{event.title}}">
+        <div class="event-card" *ngFor="let event of events">
+            <div class="event-image">
+                <img [src]="event.image" alt="{{event.title}}">
+            </div>
+            <h3>{{event.title}}</h3>
+            <p>{{event.description}}</p>
+            <p>{{event.date}}</p>
+            <p>{{event.venue}}</p>
+            <a [routerLink]="['/event-page', event.id]">Know More ></a>
         </div>
-        <h3>{{event.title}}</h3>
-        <p>{{event.description}}</p>
-        <p>{{event.date}}</p>
-        <p>{{event.venue}}</p>
-        <a [routerLink]="['/event-page', event.id]">Know More ></a>
-      </div>
     </div>
 </div>
 
@@ -26,48 +25,47 @@
 <div class="manage-events-container" *ngIf="isManageEventsOpen">
     <h2>Manage Events</h2>
     <div class="events">
-      <div class="event-card" *ngFor="let event of events; let i = index">
-        <div class="event-image">
-            <img [src]="event.image" alt="{{event.title}}">
+        <div class="event-card" *ngFor="let event of events; let i = index">
+            <div class="event-image">
+                <img [src]="event.image" alt="{{event.title}}">
+            </div>
+            <h3>{{event.title}}</h3>
+            <p>{{event.description}}</p>
+            <p>{{event.date}}</p>
+            <p>{{event.venue}}</p>
+            <button (click)="editEvent(i)">Edit</button>
+            <button (click)="deleteEvent(i)">Delete</button>
         </div>
-        <h3>{{event.title}}</h3>
-        <p>{{event.description}}</p>
-        <p>{{event.date}}</p>
-        <p>{{event.venue}}</p>
-        <button (click)="editEvent(i)">Edit</button>
-        <button (click)="deleteEvent(i)">Delete</button>
-      </div>
     </div>
 </div>
 
 <!-- Modal Structure -->
-<!-- Modal Structure -->
 <div id="eventModal" class="modal" [ngClass]="{'show': isModalOpen}">
-  <div class="modal-content">
-    <span class="close" (click)="closeModal()">×</span>
-    <h2>{{isEditing ? 'Edit Event' : 'Create Event'}}</h2>
-    <form (ngSubmit)="onSubmit()">
-      <label for="title">Event Title:</label>
-      <input type="text" id="title" [(ngModel)]="event.title" name="title" required>
-      
-      <label for="description">Description:</label>
-      <textarea id="description" [(ngModel)]="event.description" name="description" required></textarea>
-      
-      <label for="date">Event Date:</label>
-      <input type="date" id="date" [(ngModel)]="event.date" name="date" required>
-      
-      <label for="time">Event Time:</label> <!-- Add this field -->
-      <input type="time" id="time" [(ngModel)]="event.time" name="time" required>
-      
-      <label for="venue">Event Venue:</label>
-      <input type="text" id="venue" [(ngModel)]="event.venue" name="venue" required>
-      
-      <label for="file">Upload Image:</label>
-      <input type="file" id="file" (change)="onFileChange($event)">
-      
-      <button type="submit">{{isEditing ? 'Update' : 'Submit'}}</button>
-    </form>
-  </div>
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">×</span>
+        <h2>{{isEditing ? 'Edit Event' : 'Create Event'}}</h2>
+        <form (ngSubmit)="onSubmit()">
+            <label for="title">Event Title:</label>
+            <input type="text" id="title" [(ngModel)]="event.title" name="title" required>
+            
+            <label for="description">Description:</label>
+            <textarea id="description" [(ngModel)]="event.description" name="description" required></textarea>
+            
+            <label for="date">Event Date:</label>
+            <input type="date" id="date" [(ngModel)]="event.date" name="date" required>
+            
+            <label for="time">Event Time:</label> <!-- Add this field -->
+            <input type="time" id="time" [(ngModel)]="event.time" name="time" required>
+            
+            <label for="venue">Event Venue:</label>
+            <input type="text" id="venue" [(ngModel)]="event.venue" name="venue" required>
+            
+            <label for="file">Upload Image:</label>
+            <input type="file" id="file" (change)="onFileChange($event)">
+            
+            <button type="submit">{{isEditing ? 'Update' : 'Submit'}}</button>
+        </form>
+    </div>
 </div>
 
 <app-footer></app-footer>

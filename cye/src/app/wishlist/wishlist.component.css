@@ -65,7 +65,7 @@
   padding: 10px 15px;
   font-size: 14px;
   color: #fff; /* White text */
-  background-color: #e74c3c; /* Red color for remove button */
+  background-color: #1c1b1a; /* Red color for remove button */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -73,5 +73,5 @@
 }
 
 .remove-btn:hover {
-  background-color: #c0392b; /* Darker red on hover */
+  background-color: #867f7f; /* Darker red on hover */
 }
