@@ -1,12 +1,11 @@
-<!-- home-normal-user.component.html -->
 <app-header></app-header>
-<!-- home-normal-user.component.html -->
+
 <div class="events-container">
   <h2>All Events</h2>
   <div class="events">
     <div *ngFor="let event of events" class="event-card">
       <div class="event-image">
-        <img [src]="event.image || 'assets/images/default-event.jpg'" alt="{{ event.title }}" />
+        <img [src]="event.imageUrl" alt="{{ event.title }}" />
       </div>
       <h3>{{ event.title }}</h3>
       <p>{{ event.description }}</p>
@@ -18,6 +17,5 @@
     </div>
   </div>
 </div>
-
 
 <app-footer></app-footer>
