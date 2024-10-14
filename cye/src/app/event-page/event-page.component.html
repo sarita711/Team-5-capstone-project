@@ -1,17 +1,28 @@
 <!-- event-page.component.html -->
 <div *ngIf="event">
-  <div class="event-container">
-    <h1>{{ event.title || 'No Title Available' }}</h1>
-    <div class="event-details">
-      <img [src]="event.image" alt="{{ event.title }}" *ngIf="event.image">
-      <p *ngIf="event.date"><span>Date:</span> {{ event.date }}</p>
-      <p *ngIf="event.venue"><span>Venue:</span> {{ event.venue }}</p>
-      <p *ngIf="event.time"><span>Time:</span> {{ event.time }}</p>
-      <p *ngIf="event.host"><span>Host:</span> {{ event.host }}</p>
-      <p *ngIf="event.description"><span>Description:</span> {{ event.description }}</p>
+  <div class="wrapper">
+    <div class="event-container" style="width: 100%;">
+      <div class="event-box">
+        <h1>{{ event.title || 'No Title Available' }}</h1>
+        <div class="event-details">
+          <img src="URL_of_the_image">
+
+        
+
+          <p *ngIf="event.date"><span>Date:</span> {{ event.date }}</p>
+          
+
+          <p *ngIf="event.time"><span>Time:</span> {{ event.time }}</p>
+          <p *ngIf="event.venue"><span>Venue:</span> {{ event.venue }}</p>
+          <p *ngIf="event.host"><span>Host:</span> {{ event.host }}</p>
+          <p *ngIf="event.description"><span>Description:</span> {{ event.description }}</p>
+          <a href="https://www.unicef.org/innocenti/events/launch-unicefs-youth-foresight-playbook-dubai-future-forum"
+            class="button">
+            View more details </a>
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div *ngIf="!event">
-  <p>Event not found or data is still loading...</p>
-</div>
+    <div *ngIf="!event">
+      <p>Event not found or data is still loading...</p>
+    </div>

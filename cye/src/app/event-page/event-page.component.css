@@ -1,69 +1,88 @@
-/* event-page.component.css */
 
 body {
-  background-color: #1c1b1b; /* Dark background */
-  color: #fff; /* White text */
-  font-family: Arial, sans-serif; /* Font family */
-  margin: 0; /* Reset default margin */
-  padding: 0; /* Reset default padding */
+  font-family: 'Arial', sans-serif; /* Clean font */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 100; /* Remove default margin */
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(111, 108, 108);
+  height: 100vh;
 }
 
 .event-container {
-  background-color: #fff; /* White background for the event container */
-  color: #000; /* Black text inside the container */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  padding: 20px; /* Padding around the content */
-  max-width: 600px; /* Max width for the container */
-  margin: 20px auto; /* Center the container */
+  max-width: 800px; /* Set a maximum width for the container */
+  margin: 20px; /* Margin around the container */
+  padding: 40px; /* Increased padding for a spacious feel */
+  border: 2px solid #000; /* Black border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+  background-color: #fff; /* White background */
+  transition: transform 0.3s; /* Smooth scaling effect */
+  text-align: center;
 }
 
-.event-container h1 {
-  font-size: 2em; /* Larger font for the title */
+.event-container:hover {
+  transform: scale(1.05);
+  align-self: 55; /* Slightly scale up on hover */
+}
+
+h1 {
+  font-size: 2.5em; /* Larger title font */
   margin-bottom: 15px; /* Space below the title */
-  text-align: center; /* Center align the title */
+  color: #000; /* Black color for the title */
+  text-align: center; /* Center the title */
+  text-transform: uppercase; /* Uppercase letters for emphasis */
+  letter-spacing: 1px; /* Spacing between letters */
 }
 
 .event-details {
-  margin: 15px 0; /* Margin for event details */
+  margin-top: 15px; /* Space above the details */
 }
 
 .event-details img {
-  border-radius: 10px; /* Rounded corners for the image */
-  width: 100%; /* Make the image responsive */
+  max-width: 100%; /* Ensure the image is responsive */
   height: auto; /* Maintain aspect ratio */
-  max-height: 300px; /* Max height to avoid excessive image size */
+  border-radius: 8px; /* Rounded corners for images */
+  display: block; /* Center the image */
+  margin: 0 auto 15px; /* Center and space below */
 }
 
 .event-details p {
-  margin: 10px 0; /* Space between paragraphs */
+  margin: 12px 0; /* Space between paragraphs */
+  color: #333; /* Dark grey text for better readability */
+  line-height: 1.6; /* Increased line height for readability */
 }
 
 .event-details span {
-  font-weight: bold; /* Bold the labels for better readability */
+  font-weight: bold; /* Bold the labels */
+  color: #000; /* Ensure labels are black */
+}
+
+.button {
+  display: inline-block; /* Make the link look like a button */
+  padding: 12px 20px; /* Add padding */
+  background-color: #000; /* Black background */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 8px; /* Rounded corners */
+  text-align: center; /* Center text */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+  margin-top: 15px; /* Space above the button */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.button:hover {
+  background-color: #444; /* Darker grey on hover */
+  transform: translateY(-3px); /* Lift the button on hover */
 }
 
 p {
-  font-size: 1.1em; /* Slightly larger font for paragraphs */
-}
-
-.event-not-found {
-  text-align: center; /* Center align the not found message */
-  font-size: 1.5em; /* Larger font for emphasis */
-  margin-top: 50px; /* Space above the message */
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-  .event-container {
-    padding: 15px; /* Less padding on smaller screens */
-  }
-
-  .event-container h1 {
-    font-size: 1.8em; /* Smaller title on mobile */
-  }
-
-  .event-details p {
-    font-size: 1em; /* Smaller paragraph text on mobile */
-  }
+  font-size: 1em; /* Standard paragraph font size */
 }

@@ -6,7 +6,8 @@ import { EventService } from '../services/event.service';
 @Component({
   selector: 'app-event-page',
   templateUrl: './event-page.component.html',
-  styleUrls: ['./event-page.component.css'],
+  styleUrl: './event-page.component.css'
+
 })
 export class EventPageComponent implements OnInit {
   event: any;
