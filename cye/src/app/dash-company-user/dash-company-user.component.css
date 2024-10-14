@@ -36,35 +36,47 @@
 
 /* Events Container */
 .events-container {
+
   padding: 20px;
   text-align: center;
-  background-color: white;
+  background-color: #f8f9fa; /* Light grey background */
   margin: 20px;
   border: 1px solid #ddd;
+  border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
+  
   font-size: 24px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  color: #333; /* Darker text for contrast */
 }
 
 .events {
+  
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  flex-wrap: wrap; /* Wrap items to the next line if needed */
+  justify-content: center; /* Center the items */
+  gap: 20px; /* Space between items */
+  overflow-x: auto; /* Enable horizontal scrolling if necessary */
+  padding: 10px 0; /* Add some padding for aesthetics */
 }
 
 /* Event Card */
 .event-card {
+  
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;  
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 200px; /* Card width */
-  padding: 20px;
+  width: 250px; /* Set a fixed width */
+  padding: 15px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s; 
+  flex-shrink: 0; /* Prevent the card from shrinking */
 }
 
 .event-card:hover {
@@ -83,6 +95,7 @@ h2 {
 .event-card h3 {
   font-size: 20px;
   margin-bottom: 10px;
+  color: #333; /* Darker text */
 }
 
 .event-card p {
@@ -108,6 +121,24 @@ h2 {
 .manage-events-container .event-card {
   margin-top: 10px;
 }
+.button-container {
+  display: flex; /* Use flexbox for button layout */
+  justify-content: space-between; /* Space out buttons */
+  width: 100%; /* Ensure full width for spacing */
+  margin-top: 10px; /* Add space above the buttons */
+}
+
+.manage-events-container .event-card button {
+  margin: 0 10px; /* Horizontal spacing between buttons */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.manage-events-container .event-card button:hover {
+  background-color: #d1c5c5;
+}
+
 
 /* Modal Styles */
 .modal {
