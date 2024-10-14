@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService, Event } from '../services/event.service';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-dash-company-user',
   templateUrl: './dash-company-user.component.html',
@@ -23,9 +23,13 @@ export class DashCompanyUserComponent implements OnInit {
 
   events: Event[] = [];
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService,private authService: AuthService) {}
 
   ngOnInit() {
+    if (!this.authService.isLoggedIn() || !this.authService.isCompanyUser()) {
+      // Redirect to login if not a company user
+      window.location.href = '/login';
+    }
     this.loadEvents();
   }
 

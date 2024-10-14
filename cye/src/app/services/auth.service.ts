@@ -41,4 +41,12 @@ export class AuthService {
   getCurrentUser(): User | null {
     return this.currentUserSubject.value;
   }
+  isLoggedIn(): boolean {
+    return this.getCurrentUser() !== null;
+  }
+
+  isCompanyUser(): boolean {
+    const user = this.getCurrentUser();
+    return user !== null && user.userType === 'company';
+  }
 }
