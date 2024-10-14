@@ -1,31 +1,44 @@
-import { Component } from '@angular/core';
-
-interface Event {
-  title: string;
-  description: string;
-  date: string;
-  venue: string;
-  image: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { EventService, Event } from '../services/event.service';
 
 @Component({
   selector: 'app-dash-company-user',
   templateUrl: './dash-company-user.component.html',
   styleUrls: ['./dash-company-user.component.css']
 })
-export class DashCompanyUserComponent {
+export class DashCompanyUserComponent implements OnInit {
   isModalOpen = false;
   isManageEventsOpen = false;
   isEditing = false;
   editingIndex: number | null = null;
+
   event: Event = {
     title: '',
     description: '',
     date: '',
+    time: '',
     venue: '',
-    image: ''
+    image: null
   };
+
   events: Event[] = [];
+
+  constructor(private eventService: EventService) {}
+
+  ngOnInit() {
+    this.loadEvents();
+  }
+
+  loadEvents() {
+    this.eventService.getAllEvents().subscribe(
+      (data: Event[]) => {
+        this.events = data;
+      },
+      (error) => {
+        console.error('Error loading events:', error);
+      }
+    );
+  }
 
   openModal() {
     this.isModalOpen = true;
@@ -43,32 +56,64 @@ export class DashCompanyUserComponent {
   }
 
   onFileChange(event: any) {
-    const file = event.target.files; // Access the first file
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.event.image = reader.result as string;
-    };
-    reader.readAsDataURL(file);
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.event.image = reader.result as string; // Store the base64 encoded string
+      };
+      reader.readAsDataURL(file); // Convert the file to a base64 string
+    }
   }
 
   onSubmit() {
     if (this.isEditing && this.editingIndex !== null) {
-      this.events[this.editingIndex] = { ...this.event };
+      const id = this.events[this.editingIndex].id!;
+      this.eventService.updateEvent(id, this.event).subscribe(
+        updatedEvent => {
+          if (this.editingIndex !== null) {
+            this.events[this.editingIndex] = updatedEvent;
+          }
+          this.closeModal();
+        },
+        error => {
+          console.error('Error updating event:', error);
+        }
+      );
     } else {
-      this.events.push({ ...this.event });
+      this.eventService.createEvent(this.event).subscribe(
+        newEvent => {
+          this.events.push(newEvent);
+          this.closeModal();
+        },
+        error => {
+          console.error('Error creating event:', error);
+        }
+      );
     }
-    this.closeModal();
   }
 
   editEvent(index: number) {
-    this.event = { ...this.events[index] };
-    this.isEditing = true;
-    this.editingIndex = index;
-    this.openModal();
+    if (index >= 0 && index < this.events.length) {
+      this.event = { ...this.events[index] };
+      this.isEditing = true;
+      this.editingIndex = index;
+      this.openModal();
+    }
   }
 
   deleteEvent(index: number) {
-    this.events.splice(index, 1);
+    if (index >= 0 && index < this.events.length) {
+      const eventId = this.events[index].id!;
+      this.eventService.deleteEvent(eventId).subscribe(
+        () => {
+          this.events.splice(index, 1);
+        },
+        error => {
+          console.error('Error deleting event:', error);
+        }
+      );
+    }
   }
 
   resetEvent() {
@@ -76,8 +121,9 @@ export class DashCompanyUserComponent {
       title: '',
       description: '',
       date: '',
+      time: '',
       venue: '',
-      image: ''
+      image: null
     };
   }
 }

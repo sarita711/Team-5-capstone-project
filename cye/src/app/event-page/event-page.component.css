@@ -1,0 +1,69 @@
+/* event-page.component.css */
+
+body {
+  background-color: #1c1b1b; /* Dark background */
+  color: #fff; /* White text */
+  font-family: Arial, sans-serif; /* Font family */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+.event-container {
+  background-color: #fff; /* White background for the event container */
+  color: #000; /* Black text inside the container */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 20px; /* Padding around the content */
+  max-width: 600px; /* Max width for the container */
+  margin: 20px auto; /* Center the container */
+}
+
+.event-container h1 {
+  font-size: 2em; /* Larger font for the title */
+  margin-bottom: 15px; /* Space below the title */
+  text-align: center; /* Center align the title */
+}
+
+.event-details {
+  margin: 15px 0; /* Margin for event details */
+}
+
+.event-details img {
+  border-radius: 10px; /* Rounded corners for the image */
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Max height to avoid excessive image size */
+}
+
+.event-details p {
+  margin: 10px 0; /* Space between paragraphs */
+}
+
+.event-details span {
+  font-weight: bold; /* Bold the labels for better readability */
+}
+
+p {
+  font-size: 1.1em; /* Slightly larger font for paragraphs */
+}
+
+.event-not-found {
+  text-align: center; /* Center align the not found message */
+  font-size: 1.5em; /* Larger font for emphasis */
+  margin-top: 50px; /* Space above the message */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .event-container {
+    padding: 15px; /* Less padding on smaller screens */
+  }
+
+  .event-container h1 {
+    font-size: 1.8em; /* Smaller title on mobile */
+  }
+
+  .event-details p {
+    font-size: 1em; /* Smaller paragraph text on mobile */
+  }
+}
