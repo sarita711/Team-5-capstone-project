@@ -1,4 +1,3 @@
-// home-normal-user.component.ts
 import { Component, OnInit } from '@angular/core';
 import { EventService, Event } from '../services/event.service';
 import { WishlistService, WishlistItem } from '../wishlist.service';
@@ -14,13 +13,13 @@ export class HomeNormalUserComponent implements OnInit {
   constructor(private eventService: EventService, private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    this.loadEvents();
+    this.loadEvents(); // Load all events on component initialization
   }
 
   loadEvents(): void {
     this.eventService.getAllEvents().subscribe(
       (data) => {
-        this.events = data;
+        this.events = data; // Assign the loaded events to the local events array
       },
       (error) => {
         console.error('Error loading events:', error);
@@ -28,27 +27,25 @@ export class HomeNormalUserComponent implements OnInit {
     );
   }
 
-  // home-normal-user.component.ts
-addToWishlist(event: Event): void {
-  const wishlistItem: WishlistItem = {
+  addToWishlist(event: Event): void {
+    const wishlistItem: WishlistItem = {
       userId: 1, // Replace with the actual logged-in user ID
-      eventId: event.id!, // Use the non-null assertion operator (!) to ensure `id` is defined
+      eventId: event.id!, // Use non-null assertion operator (!) to ensure `id` is defined
       title: event.title,
       description: event.description,
       date: event.date,
       time: event.time,
       venue: event.venue,
-      image: event.image || 'assets/images/default-event.jpg' // Use default image if none
-  };
+      image: typeof event.image === 'string' ? event.image : 'assets/images/default-event.jpg' // Ensure image is a string
+    };
 
-  this.wishlistService.addToWishlist(wishlistItem).subscribe(
+    this.wishlistService.addToWishlist(wishlistItem).subscribe(
       () => {
-          console.log(`Added to wishlist: ${event.title}`);
+        console.log(`Added to wishlist: ${event.title}`);
       },
       (error) => {
-          console.error('Error adding to wishlist:', error);
+        console.error('Error adding to wishlist:', error);
       }
-  );
-}
-
+    );
+  }
 }

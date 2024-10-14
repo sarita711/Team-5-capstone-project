@@ -16,9 +16,9 @@ export class DashCompanyUserComponent implements OnInit {
     title: '',
     description: '',
     date: '',
-    time: '', // Add this line
+    time: '',
     venue: '',
-    image: ''
+    image: null
   };
 
   events: Event[] = [];
@@ -26,7 +26,7 @@ export class DashCompanyUserComponent implements OnInit {
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
-    this.loadEvents(); // Load events on component initialization
+    this.loadEvents();
   }
 
   loadEvents() {
@@ -56,24 +56,23 @@ export class DashCompanyUserComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    const file = event.target.files[0]; // Access the first file
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.event.image = reader.result as string;
-    };
+    const file = event.target.files[0];
     if (file) {
-      reader.readAsDataURL(file);
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.event.image = reader.result as string; // Store the base64 encoded string
+      };
+      reader.readAsDataURL(file); // Convert the file to a base64 string
     }
   }
 
   onSubmit() {
     if (this.isEditing && this.editingIndex !== null) {
-      const id = this.events[this.editingIndex].id!; // Use non-null assertion
-      this.eventService.updateEvent(id, { ...this.event }).subscribe(
+      const id = this.events[this.editingIndex].id!;
+      this.eventService.updateEvent(id, this.event).subscribe(
         updatedEvent => {
-          // Make sure editingIndex is not null before accessing it
           if (this.editingIndex !== null) {
-            this.events[this.editingIndex] = updatedEvent; // Update local array
+            this.events[this.editingIndex] = updatedEvent;
           }
           this.closeModal();
         },
@@ -84,7 +83,7 @@ export class DashCompanyUserComponent implements OnInit {
     } else {
       this.eventService.createEvent(this.event).subscribe(
         newEvent => {
-          this.events.push(newEvent); // Add new event to local array
+          this.events.push(newEvent);
           this.closeModal();
         },
         error => {
@@ -93,12 +92,12 @@ export class DashCompanyUserComponent implements OnInit {
       );
     }
   }
-  
+
   editEvent(index: number) {
     if (index >= 0 && index < this.events.length) {
       this.event = { ...this.events[index] };
       this.isEditing = true;
-      this.editingIndex = index; // Assigning the index
+      this.editingIndex = index;
       this.openModal();
     }
   }
@@ -108,7 +107,7 @@ export class DashCompanyUserComponent implements OnInit {
       const eventId = this.events[index].id!;
       this.eventService.deleteEvent(eventId).subscribe(
         () => {
-          this.events.splice(index, 1); // Remove event from local array
+          this.events.splice(index, 1);
         },
         error => {
           console.error('Error deleting event:', error);
@@ -122,9 +121,9 @@ export class DashCompanyUserComponent implements OnInit {
       title: '',
       description: '',
       date: '',
-      time: '', // Add this line
+      time: '',
       venue: '',
-      image: ''
+      image: null
     };
   }
 }

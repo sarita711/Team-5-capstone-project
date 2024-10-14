@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 export interface Event {
   id?: number; // Optional ID for the backend
   title: string;
   description: string;
   date: string;
-  time: string; // Make sure to include time
+  time: string; // Include time
   venue: string;
-  image: string;
+  image: string | null; // Change to string for base64 or null
 }
 
 @Injectable({
@@ -25,18 +26,40 @@ export class EventService {
   }
 
   createEvent(event: Event): Observable<Event> {
-    return this.http.post<Event>(this.apiUrl, event);
+    // Send the event directly as a JSON object
+    return this.http.post<Event>(this.apiUrl, event).pipe(
+      catchError(error => {
+        console.error('Error creating event:', error);
+        return throwError(error);
+      })
+    );
   }
 
   updateEvent(id: number, event: Event): Observable<Event> {
-    return this.http.put<Event>(`${this.apiUrl}/${id}`, event);
+    // Send the updated event data as JSON
+    return this.http.put<Event>(`${this.apiUrl}/${id}`, event).pipe(
+      catchError(error => {
+        console.error('Error updating event:', error);
+        return throwError(error);
+      })
+    );
   }
 
   deleteEvent(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      catchError(error => {
+        console.error('Error deleting event:', error);
+        return throwError(error);
+      })
+    );
   }
+
   getEventById(id: string): Observable<Event> {
-    return this.http.get<Event>(`${this.apiUrl}/${id}`);
+    return this.http.get<Event>(`${this.apiUrl}/${id}`).pipe(
+      catchError(error => {
+        console.error('Error retrieving event:', error);
+        return throwError(error);
+      })
+    );
   }
-  
 }
