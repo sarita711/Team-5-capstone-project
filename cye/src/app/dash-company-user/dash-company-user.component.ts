@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../event.service';
-import { Event } from '../models/event.model';
+import { EventService, Event } from '../services/event.service';
 
 @Component({
   selector: 'app-dash-company-user',
@@ -8,97 +7,123 @@ import { Event } from '../models/event.model';
   styleUrls: ['./dash-company-user.component.css']
 })
 export class DashCompanyUserComponent implements OnInit {
-  events: Event[] = [];
-  newEvent: Event = {
-    id: undefined,
+  isModalOpen = false;
+  isManageEventsOpen = false;
+  isEditing = false;
+  editingIndex: number | null = null;
+
+  event: Event = {
     title: '',
     description: '',
     date: '',
     time: '',
     venue: '',
-    image: ''
+    image: null
   };
-  isCreateEvent = false;
-  isManageEvent = false;
-  isAllEvents = false;
-  selectedFile: File | null = null;
+
+  events: Event[] = [];
 
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
-    this.loadAllEvents();
+    this.loadEvents();
   }
 
-  toggleCreateEvent() {
-    this.isCreateEvent = true;
-    this.isManageEvent = false;
-    this.isAllEvents = false;
+  loadEvents() {
+    this.eventService.getAllEvents().subscribe(
+      (data: Event[]) => {
+        this.events = data;
+      },
+      (error) => {
+        console.error('Error loading events:', error);
+      }
+    );
   }
 
-  toggleManageEvent() {
-    this.isCreateEvent = false;
-    this.isManageEvent = true;
-    this.isAllEvents = false;
+  openModal() {
+    this.isModalOpen = true;
   }
 
-  toggleAllEvents() {
-    this.isCreateEvent = false;
-    this.isManageEvent = false;
-    this.isAllEvents = true;
+  closeModal() {
+    this.isModalOpen = false;
+    this.isEditing = false;
+    this.editingIndex = null;
+    this.resetEvent();
   }
 
-  onSubmit() {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('image', this.selectedFile);
-      this.eventService.uploadImage(formData).subscribe((imageUrl) => {
-        this.newEvent.image = imageUrl;
-        this.eventService.createEvent(this.newEvent).subscribe(() => {
-          this.loadAllEvents();
-          this.resetForm();
-        });
-      });
-    } else {
-      this.eventService.createEvent(this.newEvent).subscribe(() => {
-        this.loadAllEvents();
-        this.resetForm();
-      });
+  toggleManageEvents() {
+    this.isManageEventsOpen = !this.isManageEventsOpen;
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.event.image = reader.result as string; // Store the base64 encoded string
+      };
+      reader.readAsDataURL(file); // Convert the file to a base64 string
     }
   }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+  onSubmit() {
+    if (this.isEditing && this.editingIndex !== null) {
+      const id = this.events[this.editingIndex].id!;
+      this.eventService.updateEvent(id, this.event).subscribe(
+        updatedEvent => {
+          if (this.editingIndex !== null) {
+            this.events[this.editingIndex] = updatedEvent;
+          }
+          this.closeModal();
+        },
+        error => {
+          console.error('Error updating event:', error);
+        }
+      );
+    } else {
+      this.eventService.createEvent(this.event).subscribe(
+        newEvent => {
+          this.events.push(newEvent);
+          this.closeModal();
+        },
+        error => {
+          console.error('Error creating event:', error);
+        }
+      );
+    }
   }
 
-  editEvent(event: Event) {
-    this.newEvent = { ...event };
-    this.isCreateEvent = true;
-    this.isManageEvent = false;
-    this.isAllEvents = false;
+  editEvent(index: number) {
+    if (index >= 0 && index < this.events.length) {
+      this.event = { ...this.events[index] };
+      this.isEditing = true;
+      this.editingIndex = index;
+      this.openModal();
+    }
   }
 
-  deleteEvent(id: number) {
-    this.eventService.deleteEvent(id).subscribe(() => {
-      this.loadAllEvents();
-    });
+  deleteEvent(index: number) {
+    if (index >= 0 && index < this.events.length) {
+      const eventId = this.events[index].id!;
+      this.eventService.deleteEvent(eventId).subscribe(
+        () => {
+          this.events.splice(index, 1);
+        },
+        error => {
+          console.error('Error deleting event:', error);
+        }
+      );
+    }
   }
 
-  loadAllEvents() {
-    this.eventService.getAllEvents().subscribe((events) => {
-      this.events = events;
-    });
-  }
-
-  resetForm() {
-    this.newEvent = {
-      id: undefined,
+  resetEvent() {
+    this.event = {
       title: '',
       description: '',
       date: '',
       time: '',
       venue: '',
-      image: ''
+      image: null
     };
-    this.selectedFile = null;
   }
 }

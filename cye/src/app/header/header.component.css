@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; /* Reduced padding for a smaller header */
-    background-color: white; /* Optional: add background color */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
  
 .header-item {
@@ -104,18 +104,18 @@
 .header-center {
     flex-grow: 1;
     text-align: center;
-    font-weight: 900; /* Increased font weight for bolder text */
-    font-size: 20px; /* Optional: increase font size */
+    font-weight: 900;
+    font-size: 20px;
 }
 
 .left-links {
     display: flex;
-    gap: 20px; /* Space between links */
+    gap: 20px;
 }
 
 .right-links {
-    display: flex; /* Align items in the right section */
-    gap: 20px; /* Space between right section links */
+    display: flex;
+    gap: 20px;
 }
 
 .left-links a,
@@ -124,84 +124,84 @@
     color: black;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px 15px; /* Padding around links */
-    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px;
+    border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .support-item {
-    margin-left: 20px; /* Space between Support and Profile */
+    margin-left: 20px;
 }
 
 .left-links a:hover,
 .right-links a:hover {
-    background-color: black; /* Background on hover */
-    color: white; /* Text color on hover */
+    background-color: black;
+    color: white;
 }
 
 /* Profile Dropdown Styles */
 .profile-container {
-    position: relative; /* To position the dropdown */
-    display: flex; /* Ensure items in profile align */
-    align-items: center; /* Center align items vertically */
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .profile-dropdown {
-    display: none; /* Initially hidden */
-    position: absolute; /* Position it absolutely */
-    top: 100%; /* Position below the link */
-    right: 0; /* Align dropdown to the right edge of the Profile link */
-    background-color: #ffffff; /* Dropdown background */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Shadow for depth */
-    border-radius: 8px; /* More rounded corners */
-    padding: 15px; /* Padding inside the dropdown */
-    z-index: 10; /* Ensure it appears above other content */
-    color: #333; /* Text color */
-    min-width: 200px; /* Minimum width for dropdown */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 20px; /* Increased padding */
+    z-index: 10;
+    color: #333;
+    min-width: 250px; /* Increased minimum width */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .profile-dropdown p {
-    margin: 5px 0; /* Space between paragraphs */
-    font-size: 16px; /* Font size for text */
-    font-family: Arial, sans-serif; /* Font family for a cleaner look */
+    margin: 10px 0; /* Increased space between paragraphs */
+    font-size: 18px; /* Increased font size */
+    font-family: Arial, sans-serif;
 }
 
 .profile-dropdown .email {
-    font-style:italic ;
-    font-weight: bold; /* Bold for email */
-    color: #555; /* Color for email */
+    font-style: italic;
+    font-weight: bold;
+    color: #555;
 }
 
 .profile-dropdown .role {
     font-weight: bold;
-    font-style: italic; /* Italicize the role */
-    color: #555; /* Lighter color for the role */
+    font-style: italic;
+    color: #555;
 }
 
 .profile-container:hover .profile-dropdown {
-    display: block; /* Show dropdown on hover */
-    opacity: 1; /* Ensure dropdown is visible */
-    visibility: visible; /* Make dropdown visible */
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .header-line {
-    height: 2px; /* Increased line thickness */
-    background-color: black; /* Black line */
-    width: 100%; /* Ensures the line touches both ends */
-    margin-top: -1px; /* Moves the line up */
+    height: 2px;
+    background-color: black;
+    width: 100%;
+    margin-top: -1px;
 }
 
 .logout-button {
-    background-color: rgb(20, 19, 19); /* Optional: button color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    padding: 10px 15px; /* Button padding */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    background-color: rgb(20, 19, 19);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .logout-button:hover {
-    background-color: rgb(87, 73, 73); /* Darker color on hover */
+    background-color: rgb(87, 73, 73);
 }

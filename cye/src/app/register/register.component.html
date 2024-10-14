@@ -1,33 +1,52 @@
 <div class="register-container">
-    <h2>Register Here</h2>
-    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" />
+  <h2>Register Here</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Enter a valid email.</small>
       </div>
-      <div class="form-group">
-        <label for="userType">User Type</label>
-        <select id="userType" formControlName="userType" (change)="onUserTypeChange($event)">
-          <option value="normal">Normal User</option>
-          <option value="company">Company User</option>
-        </select>
+    </div>
+
+    <div class="form-group">
+      <label for="userType">User Type</label>
+      <select id="userType" formControlName="userType" (change)="onUserTypeChange($event)">
+        <option value="normal">Normal User</option>
+        <option value="company">Company User</option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="isCompanyUser">
+      <label for="companyId">Company ID</label>
+      <input id="companyId" formControlName="companyId" type="text" />
+      <div *ngIf="registerForm.get('companyId')?.invalid && registerForm.get('companyId')?.touched">
+        <small>Company ID is required for company users.</small>
       </div>
-      <div class="form-group" *ngIf="isCompanyUser">
-        <label for="companyId">Company ID</label>
-        <input id="companyId" formControlName="companyId" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password" />
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" />
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+        <small *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirmation password is required.</small>
+        <small *ngIf="registerForm.get('confirmPassword')?.errors?.['mismatch']">Passwords do not match.</small>
       </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" formControlName="confirmPassword" type="password" />
-      </div>
-      <div class="form-actions">
-        <button type="submit">Register</button>
-        <a href="/login" class="login-link">Login now</a>
-      </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">Register</button>
+      <a href="/login" class="login-link">Login now</a>
+    </div>
+  </form>
+</div>
