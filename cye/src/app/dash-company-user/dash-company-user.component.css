@@ -180,34 +180,59 @@ h2 {
   color: black;
   text-decoration: none;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  min-width: 120px; /* Ensure buttons have a minimum width */
 }
 
 /* Form Styles */
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-form label {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-form input, form textarea, form button {
-  margin-top: 5px;
-  padding: 10px;
-  font-size: 16px;
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  width: 100%;
+  padding: 12px; /* Increased padding for comfort */
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px; /* Slightly rounded corners */
+  font-size: 14px;
+  transition: border-color 0.3s ease;
 }
 
-form button {
-  margin-top: 20px;
-  background-color: #121313;
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus {
+  border-color: black; /* Change border color on focus */
+}
+
+textarea {
+  resize: vertical;
+  height: 120px; /* Increased height for better user experience */
+}
+
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc; /* Added border for file input */
+  border-radius: 6px;
+}
+
+/* Submit button styling */
+form button[type="submit"] {
+  padding: 12px 25px; /* Adjusted padding for consistency */
+  background-color: black;
   color: white;
   border: none;
+  border-radius: 8px; /* Rounded corners */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 form button:hover {
