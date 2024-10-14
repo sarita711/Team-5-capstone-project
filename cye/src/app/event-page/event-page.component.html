@@ -1,14 +1,20 @@
-<!-- event-page.component.html -->
 <div *ngIf="event">
   <div class="event-container">
     <h1>{{ event.title || 'No Title Available' }}</h1>
     <div class="event-details">
-      <img [src]="event.image" alt="{{ event.title }}" *ngIf="event.image">
+      <a [href]="event.imageUrl" target="_blank" *ngIf="event.imageUrl">
+        <img [src]="event.imageUrl" alt="{{ event.title }}">
+      </a>
       <p *ngIf="event.date"><span>Date:</span> {{ event.date }}</p>
       <p *ngIf="event.venue"><span>Venue:</span> {{ event.venue }}</p>
       <p *ngIf="event.time"><span>Time:</span> {{ event.time }}</p>
       <p *ngIf="event.host"><span>Host:</span> {{ event.host }}</p>
       <p *ngIf="event.description"><span>Description:</span> {{ event.description }}</p>
+      
+      <!-- Go to Site Link -->
+      <p *ngIf="event.imageUrl">
+        <a [href]="event.imageUrl" target="_blank" class="go-to-site-link">Go to Site</a>
+      </p>
     </div>
   </div>
 </div>
