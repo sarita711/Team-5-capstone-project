@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { FormsModule } from '@angular/forms';
 
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,FormsModule
+    AppRoutingModule,ReactiveFormsModule,FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

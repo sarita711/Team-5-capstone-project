@@ -1,25 +1,16 @@
-import { Component } from '@angular/core';
-
-interface Event {
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  venue: string;
-  image: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { EventService } from '../event.service';
+import { Event } from '../models/event.model';
 
 @Component({
   selector: 'app-dash-company-user',
   templateUrl: './dash-company-user.component.html',
   styleUrls: ['./dash-company-user.component.css']
 })
-export class DashCompanyUserComponent {
-  isModalOpen = false;
-  isManageEventsOpen = false;
-  isEditing = false;
-  editingIndex: number | null = null;
-  event: Event = {
+export class DashCompanyUserComponent implements OnInit {
+  events: Event[] = [];
+  newEvent: Event = {
+    id: undefined,
     title: '',
     description: '',
     date: '',
@@ -27,54 +18,80 @@ export class DashCompanyUserComponent {
     venue: '',
     image: ''
   };
-  events: Event[] = [];
+  isCreateEvent = false;
+  isManageEvent = false;
+  isAllEvents = false;
+  selectedFile: File | null = null;
 
-  openModal() {
-    this.isModalOpen = true;
+  constructor(private eventService: EventService) {}
+
+  ngOnInit() {
+    this.loadAllEvents();
   }
 
-  closeModal() {
-    this.isModalOpen = false;
-    this.isEditing = false;
-    this.editingIndex = null;
-    this.resetEvent();
+  toggleCreateEvent() {
+    this.isCreateEvent = true;
+    this.isManageEvent = false;
+    this.isAllEvents = false;
   }
 
-  toggleManageEvents() {
-    this.isManageEventsOpen = !this.isManageEventsOpen;
+  toggleManageEvent() {
+    this.isCreateEvent = false;
+    this.isManageEvent = true;
+    this.isAllEvents = false;
   }
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.event.image = reader.result as string;
-    };
-    reader.readAsDataURL(file);
+  toggleAllEvents() {
+    this.isCreateEvent = false;
+    this.isManageEvent = false;
+    this.isAllEvents = true;
   }
 
   onSubmit() {
-    if (this.isEditing && this.editingIndex !== null) {
-      this.events[this.editingIndex] = { ...this.event };
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('image', this.selectedFile);
+      this.eventService.uploadImage(formData).subscribe((imageUrl) => {
+        this.newEvent.image = imageUrl;
+        this.eventService.createEvent(this.newEvent).subscribe(() => {
+          this.loadAllEvents();
+          this.resetForm();
+        });
+      });
     } else {
-      this.events.push({ ...this.event });
+      this.eventService.createEvent(this.newEvent).subscribe(() => {
+        this.loadAllEvents();
+        this.resetForm();
+      });
     }
-    this.closeModal();
   }
 
-  editEvent(index: number) {
-    this.event = { ...this.events[index] };
-    this.isEditing = true;
-    this.editingIndex = index;
-    this.openModal();
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
   }
 
-  deleteEvent(index: number) {
-    this.events.splice(index, 1);
+  editEvent(event: Event) {
+    this.newEvent = { ...event };
+    this.isCreateEvent = true;
+    this.isManageEvent = false;
+    this.isAllEvents = false;
   }
 
-  resetEvent() {
-    this.event = {
+  deleteEvent(id: number) {
+    this.eventService.deleteEvent(id).subscribe(() => {
+      this.loadAllEvents();
+    });
+  }
+
+  loadAllEvents() {
+    this.eventService.getAllEvents().subscribe((events) => {
+      this.events = events;
+    });
+  }
+
+  resetForm() {
+    this.newEvent = {
+      id: undefined,
       title: '',
       description: '',
       date: '',
@@ -82,5 +99,6 @@ export class DashCompanyUserComponent {
       venue: '',
       image: ''
     };
+    this.selectedFile = null;
   }
 }
