@@ -1,19 +1,29 @@
 <header class="header-container">
-  <div class="left-links">
+    <div class="left-links">
       <a routerLink="/about-us" class="header-item">About Us</a>
-      <a routerLink="/wishlist" class="header-item">Wishlist</a>
-  </div>
-  <div class="header-item header-center">Catch Your Events</div>
-  <div class="right-links">
+
+      <a *ngIf="userType === 'company' && isOnCompanyDashboard()" routerLink="/home-normal-user" class="header-item">Home</a>
+      <a *ngIf="userType === 'company' && isOnNormalUserHome()" routerLink="/dash-company-user" class="header-item">Dashboard</a>
+
+      <a *ngIf="userType === 'normal' && isOnNormalUserHome()" routerLink="/wishlist" class="header-item">Wishlist</a>
+      <a *ngIf="userType === 'company' && isOnNormalUserHome()" routerLink="/wishlist" class="header-item">Wishlist</a>
+
+      <!-- Show Home link for everyone when on the wishlist page -->
+      <a *ngIf="isOnWishlist()" routerLink="/home-normal-user" class="header-item">Home</a>
+    </div>
+    
+    <div class="header-item header-center">Catch Your Events</div>
+    
+    <div class="right-links">
       <a routerLink="/contact-us" class="header-item support-item">Support</a>
       <div class="profile-container">
-          <a href="javascript:void(0)" class="header-item">Profile</a>
-          <div class="profile-dropdown">
-              <p class="email">Email: {{ userEmail }}</p>
-              <p class="role">Role: {{ userType }}</p>
-              <button class="logout-button" (click)="logout()">Log Out</button>
-          </div>
+        <a href="javascript:void(0)" class="header-item">Profile</a>
+        <div class="profile-dropdown">
+          <p class="email">Email: {{ userEmail }}</p>
+          <p class="role">Role: {{ userType }}</p>
+          <button class="logout-button" (click)="logout()">Log Out</button>
+        </div>
       </div>
-  </div>
+    </div>
 </header>
 <div class="header-line"></div>

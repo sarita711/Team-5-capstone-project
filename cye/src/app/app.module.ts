@@ -16,6 +16,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EventPageComponent } from './event-page/event-page.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -40,7 +41,7 @@ import { EventPageComponent } from './event-page/event-page.component';
 
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule
+    AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule,RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
