@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService, Event } from '../services/event.service';
-import { WishlistService, WishlistItem } from '../wishlist.service';
+import { WishlistService, WishlistItem } from '../services/wishlist.service';
 
 @Component({
   selector: 'app-home-normal-user',
