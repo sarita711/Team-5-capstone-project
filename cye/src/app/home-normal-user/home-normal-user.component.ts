@@ -36,7 +36,7 @@ export class HomeNormalUserComponent implements OnInit {
       date: event.date,
       time: event.time,
       venue: event.venue,
-      image: typeof event.image === 'string' ? event.image : 'assets/images/default-event.jpg' // Ensure image is a string
+      image: event.imageUrl // Use imageUrl property directly for wishlist item
     };
 
     this.wishlistService.addToWishlist(wishlistItem).subscribe(

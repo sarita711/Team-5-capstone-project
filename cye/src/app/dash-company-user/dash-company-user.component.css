@@ -36,7 +36,6 @@
 
 /* Events Container */
 .events-container {
-
   padding: 20px;
   text-align: center;
   background-color: #f8f9fa; /* Light grey background */
@@ -47,14 +46,12 @@
 }
 
 h2 {
-  
   font-size: 24px;
   margin-bottom: 20px;
   color: #333; /* Darker text for contrast */
 }
 
 .events {
-  
   display: flex;
   flex-wrap: wrap; /* Wrap items to the next line if needed */
   justify-content: center; /* Center the items */
@@ -65,7 +62,6 @@ h2 {
 
 /* Event Card */
 .event-card {
-  
   padding: 20px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;  
@@ -121,6 +117,7 @@ h2 {
 .manage-events-container .event-card {
   margin-top: 10px;
 }
+
 .button-container {
   display: flex; /* Use flexbox for button layout */
   justify-content: space-between; /* Space out buttons */
@@ -135,10 +132,10 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .manage-events-container .event-card button:hover {
   background-color: #d1c5c5;
 }
-
 
 /* Modal Styles */
 .modal {
@@ -159,13 +156,13 @@ h2 {
 
 .modal-content {
   background-color: #fff;
-  margin: 10% auto; 
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
+  width: 90%; /* Slightly narrower to ensure content fits */
   max-width: 500px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -191,6 +188,7 @@ form {
   flex-direction: column;
   gap: 15px;
   width: 100%;
+  max-width: 100%; /* Ensure form does not exceed container width */
   margin: 0 auto;
 }
 
@@ -198,12 +196,14 @@ input[type="text"],
 input[type="date"],
 input[type="time"],
 textarea {
-  width: 100%;
+  width: calc(100% - 24px); /* Adjusted width to account for padding */
+  max-width: 100%; /* Ensure input does not exceed container width */
   padding: 12px; /* Increased padding for comfort */
   border: 1px solid #ccc;
   border-radius: 6px; /* Slightly rounded corners */
   font-size: 14px;
   transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 input[type="text"]:focus,
@@ -222,6 +222,8 @@ input[type="file"] {
   padding: 10px;
   border: 1px solid #ccc; /* Added border for file input */
   border-radius: 6px;
+  width: 100%; /* Ensure file input takes full width */
+  box-sizing: border-box;
 }
 
 /* Submit button styling */
@@ -233,6 +235,7 @@ form button[type="submit"] {
   border-radius: 8px; /* Rounded corners */
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  width: 100%; /* Ensure button takes full width */
 }
 
 form button:hover {
