@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService, Event } from '../services/event.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dash-company-user',
@@ -18,14 +19,18 @@ export class DashCompanyUserComponent implements OnInit {
     date: '',
     time: '',
     venue: '',
-    image: null
+    imageUrl: '' // Updated to use imageUrl instead of image file
   };
 
   events: Event[] = [];
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private authService: AuthService) {}
 
   ngOnInit() {
+    if (!this.authService.isLoggedIn() || !this.authService.isCompanyUser()) {
+      // Redirect to login if not a company user
+      window.location.href = '/login';
+    }
     this.loadEvents();
   }
 
@@ -53,17 +58,6 @@ export class DashCompanyUserComponent implements OnInit {
 
   toggleManageEvents() {
     this.isManageEventsOpen = !this.isManageEventsOpen;
-  }
-
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.event.image = reader.result as string; // Store the base64 encoded string
-      };
-      reader.readAsDataURL(file); // Convert the file to a base64 string
-    }
   }
 
   onSubmit() {
@@ -123,7 +117,7 @@ export class DashCompanyUserComponent implements OnInit {
       date: '',
       time: '',
       venue: '',
-      image: null
+      imageUrl: '' // Reset the imageUrl field
     };
   }
 }

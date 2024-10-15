@@ -68,13 +68,61 @@ body {
 .event-card strong {
   font-weight: bold; /* Bold for date, time, and venue */
 }
+.info-btn, .wishlist-btn {
+  background-color: #0c0c0d; /* Adjust color as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 14px;
+  width: 100%; /* Make buttons the same width */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  transition: background-color 0.2s;
+}
+
+.info-btn:hover {
+  background-color: #dce2ea; /* Darker shade for hover effect */
+}
+.wishlist-btn:hover {
+  background-color: #d0d6dc; /* Grey color on hover */
+}
 
 .wishlist-btn {
-  margin-top: 10px;
-  padding: 10px 15px;
-  font-size: 14px;
+  margin-top: 10px; /* Space above the wishlist button */
+}
+
+.info-btn {
+  margin-bottom: 10px; /* Space below the know more link */
+}
+
+
+/* Styling for reference links */
+a {
+  text-decoration: none; /* Remove default underline */
+  color: #000; /* Black text for the link */
+  font-weight: normal; /* Change to normal weight */
+  font-size: 13px; /* Adjust font size */
+  margin-top: 10px; /* Space between the text and other content */
+  display: inline-block; /* Make it behave more like a button without button styles */
+  padding: 5px 0; /* Padding for aesthetics */
+  border-bottom: 2px solid transparent; /* Add bottom border for hover effect */
+  transition: color 0.3s, border-bottom-color 0.3s; /* Smooth transition */
+}
+
+a:hover {
+  color: #333; /* Darker grey on hover */
+  border-bottom-color: #000; /* Show the border on hover */
+}
+
+/* Styling for the wishlist button */
+.wishlist-btn {
+  margin-top: 15px; /* Increase margin to create more space above */
+  padding: 8px 12px; /* Slightly reduce padding for a smaller button */
+  font-size: 14px; /* Keep font size the same */
   color: #fff; /* White text */
-  background-color: #0c0c0c; /* Blue color for add to wishlist button */
+  background-color: #0c0c0c; /* Dark color for the button */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -82,5 +130,5 @@ body {
 }
 
 .wishlist-btn:hover {
-  background-color: #151516; /* Darker blue on hover */
+  background-color: #151516; /* Darker color on hover */
 }
