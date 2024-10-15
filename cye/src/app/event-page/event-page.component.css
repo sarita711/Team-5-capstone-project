@@ -1,69 +1,92 @@
 /* event-page.component.css */
 
 body {
-  background-color: #1c1b1b; /* Dark background */
-  color: #fff; /* White text */
-  font-family: Arial, sans-serif; /* Font family */
-  margin: 0; /* Reset default margin */
-  padding: 0; /* Reset default padding */
+  background-color: #f5f5f5; /* Light gray background */
+  color: #333; /* Dark gray text */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .event-container {
   background-color: #fff; /* White background for the event container */
   color: #000; /* Black text inside the container */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  padding: 20px; /* Padding around the content */
-  max-width: 600px; /* Max width for the container */
-  margin: 20px auto; /* Center the container */
+  border: 1px solid #ccc; /* Light gray border for subtle contrast */
+  border-radius: 8px;
+  padding: 25px;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  text-align: left; /* Align text to the left */
 }
 
 .event-container h1 {
-  font-size: 2em; /* Larger font for the title */
-  margin-bottom: 15px; /* Space below the title */
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #111; /* Darker shade for the title */
   text-align: center; /* Center align the title */
 }
 
 .event-details {
-  margin: 15px 0; /* Margin for event details */
+  margin: 20px 0;
 }
 
 .event-details img {
-  border-radius: 10px; /* Rounded corners for the image */
-  width: 100%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 300px; /* Max height to avoid excessive image size */
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd; /* Light border around the image */
+  filter: grayscale(80%); /* Slight grayscale effect */
 }
 
 .event-details p {
-  margin: 10px 0; /* Space between paragraphs */
+  margin: 10px 0;
+  font-size: 1.1em;
+  line-height: 1.6;
 }
 
 .event-details span {
-  font-weight: bold; /* Bold the labels for better readability */
+  font-weight: bold;
+  color: #555; /* Slightly darker gray for labels */
 }
 
-p {
-  font-size: 1.1em; /* Slightly larger font for paragraphs */
+a.event-link {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 1.1em;
+  color: #fff; /* White text */
+  background-color: #201e1e; /* Dark gray background */
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+a.event-link:hover {
+  background-color: #555; /* Slightly lighter gray on hover */
+}
+
+/* Not found message */
 .event-not-found {
-  text-align: center; /* Center align the not found message */
-  font-size: 1.5em; /* Larger font for emphasis */
-  margin-top: 50px; /* Space above the message */
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 50px;
+  color: #777; /* Medium gray for the message */
 }
 
 /* Responsive styles */
 @media (max-width: 600px) {
   .event-container {
-    padding: 15px; /* Less padding on smaller screens */
+    padding: 20px;
   }
 
   .event-container h1 {
-    font-size: 1.8em; /* Smaller title on mobile */
+    font-size: 1.8em;
   }
 
   .event-details p {
-    font-size: 1em; /* Smaller paragraph text on mobile */
+    font-size: 1em;
   }
 }
