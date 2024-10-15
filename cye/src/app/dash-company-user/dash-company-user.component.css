@@ -99,6 +99,28 @@ h2 {
   color: #555; /* Less emphasis color */
 }
 
+.info-btn {
+  background-color: #0c0c0d; /* Adjust color as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 14px;
+  width: 100%; /* Make buttons the same width */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  transition: background-color 0.2s;
+}
+
+.info-btn:hover {
+  background-color: #dce2ea; /* Darker shade for hover effect */
+}
+
+.info-btn {
+  margin-bottom: 10px; /* Space below the know more link */
+}
+
 /* Manage Events Section */
 .manage-events-container {
   padding: 20px;

@@ -16,7 +16,7 @@ export interface Event {
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class EventService {
   private apiUrl = 'http://localhost:8080/api/events'; // Your API URL
 
@@ -64,3 +64,4 @@ export class EventService {
     );
   }
 }
+
