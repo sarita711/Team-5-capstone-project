@@ -13,8 +13,9 @@ export interface WishlistItem {
   date: string;
   time: string;
   venue: string;
-  image: string;
+  image?: string; // Allow undefined by making it optional
 }
+
 
 
 @Injectable({

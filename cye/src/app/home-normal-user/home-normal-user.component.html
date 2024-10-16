@@ -1,23 +1,21 @@
-<!-- home-normal-user.component.html -->
 <app-header></app-header>
-<!-- home-normal-user.component.html -->
+
 <div class="events-container">
   <h2>All Events</h2>
   <div class="events">
     <div *ngFor="let event of events" class="event-card">
       <div class="event-image">
-        <img [src]="event.image || 'assets/images/default-event.jpg'" alt="{{ event.title }}" />
+        <img [src]="event.imageUrl" alt="{{ event.title }}" />
       </div>
       <h3>{{ event.title }}</h3>
       <p>{{ event.description }}</p>
       <p><strong>Date:</strong> {{ event.date }}</p>
       <p><strong>Time:</strong> {{ event.time }}</p>
       <p><strong>Venue:</strong> {{ event.venue }}</p>
-      <a [routerLink]="['/event-page', event.id]">Know More</a>
+      <a [routerLink]="['/event-page', event.id]"class="info-btn">Know More</a>
       <button class="wishlist-btn" (click)="addToWishlist(event)">Add to Wishlist</button>
     </div>
   </div>
 </div>
-
 
 <app-footer></app-footer>

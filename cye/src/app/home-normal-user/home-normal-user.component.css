@@ -68,6 +68,35 @@ body {
 .event-card strong {
   font-weight: bold; /* Bold for date, time, and venue */
 }
+.info-btn, .wishlist-btn {
+  background-color: #0c0c0d; /* Adjust color as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 14px;
+  width: 100%; /* Make buttons the same width */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  transition: background-color 0.2s;
+}
+
+.info-btn:hover {
+  background-color: #dce2ea; /* Darker shade for hover effect */
+}
+.wishlist-btn:hover {
+  background-color: #d0d6dc; /* Grey color on hover */
+}
+
+.wishlist-btn {
+  margin-top: 10px; /* Space above the wishlist button */
+}
+
+.info-btn {
+  margin-bottom: 10px; /* Space below the know more link */
+}
+
 
 /* Styling for reference links */
 a {
@@ -87,19 +116,4 @@ a:hover {
   border-bottom-color: #000; /* Show the border on hover */
 }
 
-/* Styling for the wishlist button */
-.wishlist-btn {
-  margin-top: 15px; /* Increase margin to create more space above */
-  padding: 8px 12px; /* Slightly reduce padding for a smaller button */
-  font-size: 14px; /* Keep font size the same */
-  color: #fff; /* White text */
-  background-color: #0c0c0c; /* Dark color for the button */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.wishlist-btn:hover {
-  background-color: #151516; /* Darker color on hover */
-}

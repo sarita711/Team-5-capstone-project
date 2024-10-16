@@ -4,18 +4,19 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export interface Event {
-  id?: number; // Optional ID for the backend
+  id?: number;
   title: string;
   description: string;
   date: string;
-  time: string; // Include time
+  time: string;
   venue: string;
-  image: string | null; // Change to string for base64 or null
+  imageUrl?: string; // Ensure this is defined
 }
+
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class EventService {
   private apiUrl = 'http://localhost:8080/api/events'; // Your API URL
 
@@ -63,3 +64,4 @@ export class EventService {
     );
   }
 }
+
